@@ -1,0 +1,90 @@
+def energia_enlace(A,Z):
+    a1 = 15.8
+    a2 = 18.3
+    a3 = 0.714
+    a4 = 23.2
+    
+    def a_5(A,Z):
+        if A%2 != 0:
+            a5 = 0
+        elif (A%2 == 0 and Z%2 == 0):
+            a5 = 12.
+        elif (A%2 == 0 and Z%2 != 0):
+            a5 = -12.
+    B = a1*A + a2*A**(2/3) - a3*(Z**2/(A**(1/3))) - a4*(((A-2*Z)**2)/A) + a_5/(A**(1/2)) 
+    return B 
+
+
+
+def energia_enlace(A,Z):
+    a1 = 15.8
+    a2 = 18.3
+    a3 = 0.714
+    a4 = 23.2
+    
+    if A%2 != 0:
+        a5 = 0
+        B = a1*A - a2*A**(2/3) - a3*(Z**2/(A**(1/3))) - a4*(((A-2*Z)**2)/A) + a5/(A**(1/2))     
+    
+    if (A%2 == 0 and Z%2 == 0):
+        a5 = 12.
+        B = a1*A - a2*A**(2/3) - a3*(Z**2/(A**(1/3))) - a4*(((A-2*Z)**2)/A) + a5/(A**(1/2)) 
+    
+    if (A%2 == 0 and Z%2 != 0):
+        a5 = -12.
+        B = a1*A - a2*A**(2/3) - a3*(Z**2/(A**(1/3))) - a4*(((A-2*Z)**2)/A) + a5/(A**(1/2)) 
+    
+    return B 
+
+
+
+def energia_enlace_por_nucleon(A,Z):
+    a1 = 15.8
+    a2 = 18.3
+    a3 = 0.714
+    a4 = 23.2
+    
+    if A%2 != 0:
+        a5 = 0
+        B = a1*A - a2*A**(2/3) - a3*(Z**2/(A**(1/3))) - a4*(((A-2*Z)**2)/A) + a5/(A**(1/2))     
+    
+    if (A%2 == 0 and Z%2 == 0):
+        a5 = 12.
+        B = a1*A - a2*A**(2/3) - a3*(Z**2/(A**(1/3))) - a4*(((A-2*Z)**2)/A) + a5/(A**(1/2)) 
+    
+    if (A%2 == 0 and Z%2 != 0):
+        a5 = -12.
+        B = a1*A - a2*A**(2/3) - a3*(Z**2/(A**(1/3))) - a4*(((A-2*Z)**2)/A) + a5/(A**(1/2)) 
+    
+    return B/A 
+
+energia_enlace_por_nucleon(58,28)
+
+
+def energia_enlace_mayor(Z):
+    a1 = 15.8
+    a2 = 18.3
+    a3 = 0.714
+    a4 = 23.2
+
+    atomic = [i for i in range(Z,3*Z + 1)]
+    Varios_B = []
+
+    for A in atomic:
+    
+        if A%2 != 0:
+            a5 = 0
+            B = a1*A - a2*A**(2/3) - a3*(Z**2/(A**(1/3))) - a4*(((A-2*Z)**2)/A) + a5/(A**(1/2))     
+        
+        if (A%2 == 0 and Z%2 == 0):
+            a5 = 12.
+            B = a1*A - a2*A**(2/3) - a3*(Z**2/(A**(1/3))) - a4*(((A-2*Z)**2)/A) + a5/(A**(1/2)) 
+        
+        if (A%2 == 0 and Z%2 != 0):
+            a5 = -12.
+            B = a1*A - a2*A**(2/3) - a3*(Z**2/(A**(1/3))) - a4*(((A-2*Z)**2)/A) + a5/(A**(1/2)) 
+
+        Varios_B.append(B)
+        energia_max = max(Varios_B)
+        
+    return energia_max
