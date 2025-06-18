@@ -1,0 +1,14 @@
+def logic_map(r, x_n, it):
+    
+    # r = 5
+    # x_n = 1/2
+    X_n = []
+    R = [r for i in range(it+1)]
+    X_n.append(x_n)
+    
+    for n in range(it):
+        x_n = r*x_n*(1-x_n)
+        X_n.append(x_n)
+
+    plt.plot(R,X_n)
+        
